@@ -3,672 +3,459 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sheraz Hussain — Founder & Web Developer</title>
+  <title>School-Connected Family Wallet</title>
   
-  <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="Sheraz Hussain — Founder & Web Developer">
-  <meta property="og:description" content="Transforming businesses through high-performance web development, AI automation, and scalable cloud solutions.">
+  <!-- SEO & Social Meta Tags -->
+  <meta property="og:title" content="School-Connected Family Wallet">
+  <meta property="og:description" content="Connect classroom money skills to home allowances with zero unexpected fees.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.sheraz.synctech.ie">
   <!-- Add og:image later: 1200x630 PNG matching dark theme -->
-  
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sheraz Hussain — Founder & Web Developer">
-  <meta name="twitter:description" content="Transforming businesses through high-performance web development, AI automation, and scalable cloud solutions.">
+  <meta name="twitter:title" content="School-Connected Family Wallet">
+  <meta name="twitter:description" content="Connect classroom money skills to home allowances with zero unexpected fees.">
 
   <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💳</text></svg>">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <script>
-    // Prevent Theme Flash
-    (function() {
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.documentElement.classList.add('light');
-      }
-    })();
+    // Prevent theme flash
+    if (localStorage.getItem('theme') === 'light') {
+      document.documentElement.classList.add('light');
+    }
   </script>
 
   <style>
     :root {
       --bg: #020a18;
-      --bg-grad: linear-gradient(170deg, #020a18 0%, #041028 40%, #06142e 70%, #020a18 100%);
-      --surface: rgba(8, 24, 56, 0.85);
-      --surface-hover: rgba(14, 38, 82, 0.85);
-      --border: rgba(0, 170, 255, 0.12);
-      --border-glow: rgba(0, 170, 255, 0.3);
+      --bg-grad: linear-gradient(170deg, #020a18, #041028 40%, #06142e 70%, #020a18);
+      --surface: rgba(8,24,56,0.85);
+      --border: rgba(0,170,255,0.12);
       --text: #d0e0f0;
       --text-bright: #e8f0ff;
       --text-dim: #6888aa;
-      
       --neon: #00aaff;
       --cyan: #00e5ff;
       --green: #00ff88;
       --amber: #ffaa00;
-      --red: #ff4466;
-      --purple: #aa66ff;
-      
-      --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-      --grid-opacity: 0.03;
-      --orb-opacity: 0.08;
     }
 
     html.light {
-      --bg: #f0f4f9;
-      --bg-grad: linear-gradient(170deg, #eef2f8 0%, #e2e9f3 50%, #f0f4f9 100%);
-      --surface: rgba(255, 255, 255, 0.85);
-      --surface-hover: rgba(255, 255, 255, 0.98);
-      --border: rgba(0, 102, 204, 0.18);
-      --border-glow: rgba(0, 102, 204, 0.4);
-      --text: #1e293b;
+      --bg: #f8fafc;
+      --bg-grad: linear-gradient(170deg, #f8fafc, #e2e8f0 40%, #cbd5e1 70%, #f8fafc);
+      --surface: rgba(255,255,255,0.85);
+      --border: rgba(0,170,255,0.25);
+      --text: #334155;
       --text-bright: #0f172a;
       --text-dim: #64748b;
-      
-      --neon: #0066cc;
-      --cyan: #0088cc;
-      --green: #008a4b;
-      --amber: #d97706;
-      --red: #dc2626;
-      --purple: #7e22ce;
-
-      --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06);
-      --grid-opacity: 0.05;
-      --orb-opacity: 0.12;
+      --neon: #0284c7;
+      --cyan: #0369a1;
+      --green: #15803d;
+      --amber: #b45309;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: var(--bg);
+      background-image: var(--bg-grad);
       color: var(--text);
       line-height: 1.65;
       font-size: 16px;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
-      position: relative;
       overflow-x: hidden;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      position: relative;
     }
 
-    /* Background Depth Layers */
-    .bg-gradient-fixed {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: var(--bg-grad);
-      z-index: -3;
-    }
-
+    /* Background depth */
     .bg-grid {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
+      inset: 0;
       background-size: 60px 60px;
-      background-image: 
-        linear-gradient(to right, var(--text-dim) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--text-dim) 1px, transparent 1px);
-      opacity: var(--grid-opacity);
+      background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
       z-index: -2;
-      pointer-events: none;
+    }
+    
+    html.light .bg-grid {
+      background-image: linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px);
     }
 
     .orb {
       position: fixed;
       border-radius: 50%;
       filter: blur(100px);
-      opacity: var(--orb-opacity);
       z-index: -1;
-      pointer-events: none;
-      animation: orbit 25s infinite ease-in-out alternate;
+      animation: orbit 20s infinite alternate ease-in-out;
+      opacity: 0.15;
     }
-
-    .orb-1 {
-      width: 500px;
-      height: 500px;
-      background: var(--neon);
-      top: -100px;
-      left: calc(50% - 750px);
-    }
-
-    .orb-2 {
-      width: 450px;
-      height: 450px;
-      background: var(--purple);
-      bottom: 10%;
-      right: calc(50% - 700px);
-      animation-delay: -7s;
-    }
-
-    .orb-3 {
-      width: 350px;
-      height: 350px;
-      background: var(--cyan);
-      top: 40%;
-      left: calc(50% + 450px);
-      animation-delay: -14s;
-    }
+    .orb-1 { width: 50vw; height: 50vw; background: var(--cyan); top: -10%; left: -20%; }
+    .orb-2 { width: 40vw; height: 40vw; background: var(--neon); bottom: -10%; right: -20%; animation-delay: -5s; }
 
     @keyframes orbit {
-      0% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(40px, 60px) scale(1.1); }
-      100% { transform: translate(-30px, -40px) scale(0.95); }
-    }
-
-    /* Typography & Links */
-    a {
-      color: var(--neon);
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    a:hover {
-      color: var(--cyan);
-      text-shadow: 0 0 8px var(--border-glow);
-    }
-
-    /* Container & Header */
-    .container {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 0 20px;
-      position: relative;
-      z-index: 1;
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(5%, 10%); }
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 100;
+      background: var(--surface);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      background: var(--surface);
       border-bottom: 1px solid var(--border);
-      transition: background 0.3s ease, border-color 0.3s ease;
     }
 
-    .header-inner {
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 70px;
+      height: 64px;
     }
 
-    .brand-name {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-bright);
-      letter-spacing: -0.5px;
+    .logo { font-weight: 700; color: var(--text-bright); font-size: 1.1rem; }
+    
+    .theme-toggle {
+      background: none; border: none; cursor: pointer; font-size: 1.2rem;
+      padding: 8px; color: var(--text); border-radius: 50%;
+      transition: background 0.2s;
+    }
+    .theme-toggle:hover { background: var(--border); }
+
+    section { padding: 80px 0; border-bottom: 1px solid var(--border); }
+    section:last-of-type { border-bottom: none; }
+
+    /* Hero */
+    .hero { text-align: center; padding-top: 100px; padding-bottom: 100px; }
+    h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 24px; color: var(--text-bright); font-weight: 700; letter-spacing: -0.02em; }
+    .hero p { font-size: 1.25rem; margin-bottom: 32px; color: var(--text-dim); max-width: 600px; margin-inline: auto; }
+    .cta-btn {
+      display: inline-block; background: var(--cyan); color: #000;
+      padding: 16px 32px; border-radius: 30px; font-weight: 600;
+      text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4); border: none; cursor: pointer; font-size: 1rem;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 0 30px rgba(0, 229, 255, 0.6); }
+
+    /* Frosted Cards */
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 32px; margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+    }
+    
+    h2 { font-size: 2rem; margin-bottom: 32px; color: var(--text-bright); text-align: center; }
+    h3 { font-size: 1.25rem; color: var(--text-bright); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
+    
+    .number-indicator {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--cyan);
+      color: var(--cyan); font-size: 0.85rem; font-weight: 600; flex-shrink: 0;
     }
 
-    .header-actions {
-      display: flex;
-      gap: 12px;
+    /* Reasons & Experience */
+    .reasons-grid, .experience-grid { display: grid; gap: 24px; }
+    .experience-step { padding-left: 20px; border-left: 2px solid var(--border); position: relative; padding-bottom: 24px; }
+    .experience-step:last-child { border-left: none; padding-bottom: 0; }
+    .experience-step::before {
+      content: ''; position: absolute; left: -7px; top: 0; width: 12px; height: 12px;
+      background: var(--cyan); border-radius: 50%; box-shadow: 0 0 10px var(--cyan);
     }
+    .exp-title { color: var(--cyan); font-weight: 600; margin-bottom: 4px; }
 
-    .icon-btn {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--border);
-      color: var(--text-bright);
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.1rem;
-      transition: all 0.2s ease;
-    }
+    /* Quotes */
+    .quote-card { border-left: 4px solid var(--neon); padding: 24px; font-style: italic; color: var(--text-bright); }
+    .quote-source { display: block; font-size: 0.85rem; color: var(--text-dim); margin-top: 12px; font-style: normal; font-weight: 500; }
 
-    .icon-btn:hover {
-      border-color: var(--border-glow);
-      background: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
-    }
+    /* FAQ */
+    .faq-item { border-bottom: 1px solid var(--border); padding: 24px 0; cursor: pointer; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-weight: 600; color: var(--text-bright); display: flex; justify-content: space-between; align-items: center; }
+    .faq-q::after { content: '+'; font-size: 1.5rem; color: var(--cyan); transition: transform 0.3s; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, margin-top 0.3s ease; color: var(--text-dim); }
+    .faq-item.active .faq-a { max-height: 200px; margin-top: 12px; }
+    .faq-item.active .faq-q::after { transform: rotate(45deg); }
 
-    /* Hero Section */
-    .hero {
-      padding: 60px 0 40px;
+    /* Qualifier Tool */
+    #qualifier-tool { text-align: center; }
+    .q-step { display: none; animation: fadeIn 0.4s ease forwards; }
+    .q-step.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    
+    .q-title { font-size: 1.5rem; margin-bottom: 24px; color: var(--text-bright); }
+    .option-btn {
+      display: block; width: 100%; text-align: left; padding: 16px 24px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; color: var(--text); font-size: 1rem;
+      margin-bottom: 12px; cursor: pointer; transition: all 0.2s;
     }
+    .option-btn:hover { border-color: var(--cyan); background: rgba(0, 229, 255, 0.05); }
+    
+    .result-box { display: none; }
+    .result-box.active { display: block; animation: fadeIn 0.5s ease; }
+    .plan-title { font-size: 2rem; color: var(--green); margin-bottom: 16px; font-weight: 700; }
+    .plan-desc { font-size: 1.1rem; margin-bottom: 32px; color: var(--text-bright); }
+    .restart-btn { background: none; border: none; color: var(--text-dim); text-decoration: underline; margin-top: 24px; cursor: pointer; }
 
-    .hero-title {
-      font-size: 2.75rem;
-      font-weight: 700;
-      color: var(--text-bright);
-      line-height: 1.15;
-      margin-bottom: 8px;
-      letter-spacing: -1px;
-    }
-
-    .hero-role {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--neon);
-      margin-bottom: 24px;
-    }
-
-    .hero-statement {
-      font-size: 1.25rem;
-      color: var(--text);
-      max-width: 780px;
-      line-height: 1.6;
-      margin-bottom: 32px;
-    }
-
-    .btn-primary {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--neon), var(--cyan));
-      color: #020a18;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 14px 28px;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 170, 255, 0.25);
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      color: #020a18;
-      text-shadow: none;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(0, 229, 255, 0.4);
-    }
-
-    /* Collapsible Sections */
-    .sections-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding-bottom: 60px;
-    }
-
-    .section-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: border-color 0.3s ease, background 0.3s ease;
-    }
-
-    .section-card:hover {
-      border-color: var(--border-glow);
-    }
-
-    .section-header {
-      width: 100%;
-      background: transparent;
-      border: none;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      cursor: pointer;
-      color: var(--text-bright);
-      font-family: inherit;
-      text-align: left;
-    }
-
-    .section-header-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .section-number {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1px solid var(--neon);
-      color: var(--neon);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      font-weight: 600;
-      flex-shrink: 0;
-    }
-
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-    }
-
-    .toggle-icon {
-      font-size: 1.2rem;
-      color: var(--text-dim);
-      transition: transform 0.3s ease;
-    }
-
-    .section-card.closed .toggle-icon {
-      transform: rotate(45deg);
-    }
-
-    .section-body {
-      max-height: 2000px;
-      opacity: 1;
-      overflow: hidden;
-      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, padding 0.3s ease;
-      padding: 0 24px 24px 72px;
-    }
-
-    .section-card.closed .section-body {
-      max-height: 0;
-      opacity: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-
-    /* Content Styling inside sections */
-    .bullet-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .bullet-list li {
-      position: relative;
-    }
-
-    .bullet-list li::before {
-      content: "▹";
-      position: absolute;
-      left: -20px;
-      color: var(--neon);
-      font-weight: bold;
-    }
-
-    .badge-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .badge {
-      background: rgba(0, 170, 255, 0.08);
-      border: 1px solid var(--border);
-      color: var(--text-bright);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.88rem;
-      font-weight: 500;
-    }
-
-    .exp-item {
-      margin-bottom: 20px;
-    }
-    .exp-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .exp-title {
-      font-weight: 600;
-      color: var(--text-bright);
-    }
-
-    .exp-sub {
-      font-size: 0.9rem;
-      color: var(--text-dim);
-      margin-bottom: 6px;
-    }
-
-    .contact-cta {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 30px 0;
-      text-align: center;
-      font-size: 0.88rem;
-      color: var(--text-dim);
-    }
-
-    @media (max-width: 640px) {
-      .hero-title {
-        font-size: 2rem;
-      }
-      .section-body {
-        padding-left: 24px;
-      }
-      .section-header-left {
-        gap: 12px;
-      }
-    }
+    footer { text-align: center; padding: 40px 0; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid var(--border); }
+    
+    @media (max-width: 600px) { h1 { font-size: 2.25rem; } h2 { font-size: 1.5rem; } .card { padding: 24px; } }
   </style>
 </head>
 <body>
 
-  <div class="bg-gradient-fixed"></div>
   <div class="bg-grid"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
 
   <header>
-    <div class="container">
-      <div class="header-inner">
-        <div class="brand-name">Sheraz Hussain</div>
-        <div class="header-actions">
-          <button class="icon-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
-            <span id="theme-icon">🌙</span>
-          </button>
-          <button class="icon-btn" id="collapse-toggle" title="Collapse/Expand All Sections" aria-label="Toggle All Sections">
-            <span id="collapse-icon">−</span>
-          </button>
-        </div>
-      </div>
+    <div class="container header-content">
+      <div class="logo">Money Smarts Family</div>
+      <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">☀️</button>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h1 class="hero-title">Sheraz Hussain</h1>
-      <div class="hero-role">Founder & Business Development Manager at SYNC TECH Solutions | Web Developer</div>
-      <p class="hero-statement">Transforming businesses through high-performance web development, AI automation, and scalable cloud solutions.</p>
-      <a href="#contact" class="btn-primary">Get In Touch</a>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero container">
+      <h1>The School-Connected Family Wallet for Real-World Money Habits.</h1>
+      <p>Turn chores and pocket money into lifelong financial literacy with Ireland's first kids' card linked directly to school curriculum modules.</p>
+      <a href="#qualifier" class="cta-btn">Find Your Family Fit</a>
     </section>
 
-    <div class="sections-wrapper">
-      
-      <!-- Section 1 -->
-      <div class="section-card" id="sec-1">
-        <button class="section-header" onclick="toggleSection('sec-1')">
-          <div class="section-header-left">
-            <span class="section-number">1</span>
-            <span class="section-title">Featured Projects & AI Applications</span>
-          </div>
-          <span class="toggle-icon">✕</span>
-        </button>
-        <div class="section-body">
-          <ul class="bullet-list">
-            <li><strong>Market Genius:</strong> Architected and implemented a real-time financial signal platform delivering AI-generated insights for stock and crypto trading utilizing Next.js, TypeScript, Google Genkit, and Firebase.</li>
-            <li><strong>Job4You:</strong> Created an automated job-application assistant with Python and GPT-4 that processed over 100 simulated applications, utilizing scikit-learn for end-to-end resume, cover letter, and email generation.</li>
-            <li><strong>Chatty AI:</strong> Architected and built a cross-platform conversational AI assistant using the Gemini API, Angular, and Ionic deployed as a university study aid facilitating 200+ daily interactions with sub-second response times.</li>
-          </ul>
+    <!-- Three Reasons -->
+    <section class="container">
+      <h2>Why This Is For You</h2>
+      <div class="reasons-grid">
+        <div class="card">
+          <h3><span class="number-indicator">1</span> School-Aligned Learning</h3>
+          <p>Built on the trusted Bank of Ireland Money Smarts curriculum that has reached over 600,000 students across Ireland.</p>
+        </div>
+        <div class="card">
+          <h3><span class="number-indicator">2</span> No Per-Child Fee Trap</h3>
+          <p>Transparent family pricing that never penalises you for having more than one child or adding relative gifts.</p>
+        </div>
+        <div class="card">
+          <h3><span class="number-indicator">3</span> Purposeful Earning & Saving</h3>
+          <p>Moves beyond simple card spending with chore-linked allowances and locked goal vaults.</p>
         </div>
       </div>
+    </section>
 
-      <!-- Section 2 -->
-      <div class="section-card" id="sec-2">
-        <button class="section-header" onclick="toggleSection('sec-2')">
-          <div class="section-header-left">
-            <span class="section-number">2</span>
-            <span class="section-title">Professional Services & SYNC TECH Solutions</span>
-          </div>
-          <span class="toggle-icon">✕</span>
-        </button>
-        <div class="section-body">
-          <p style="margin-bottom: 12px;">Founded and directed SYNC TECH Solutions, an IT solutions firm specializing in bespoke digital growth, Web Development, AI Automation, Cloud Hosting, and Cybersecurity.</p>
-          <ul class="bullet-list">
-            <li><strong>E-Commerce & Platform Consulting:</strong> Delivered scalable web development, custom integrations, and architecture optimization for platforms including APTLY DRESSED, blogify.blog, and Stylish Marble Art.</li>
-            <li><strong>Digital Strategy & Optimization:</strong> Spearheaded digital marketing, funnel optimization, and technical SEO campaigns resulting in significant traffic and conversion growth.</li>
-          </ul>
+    <!-- Sample Experience Block -->
+    <section class="container">
+      <h2>Day in the Life</h2>
+      <div class="card">
+        <div class="experience-step">
+          <div class="exp-title">Morning Chore</div>
+          <p>10-year-old Aoife completes her Saturday bedroom tidy and marks it off in her app.</p>
+        </div>
+        <div class="experience-step">
+          <div class="exp-title">Parent Approval & Payout</div>
+          <p>Parent receives an instant notification, approves the chore, and €5 automatically moves from the family hub to Aoife's "Savings Vault".</p>
+        </div>
+        <div class="experience-step">
+          <div class="exp-title">Classroom Connection</div>
+          <p>Aoife completes a 2-minute "Money Smarts" interactive quiz on compound interest in her app, earning a custom card skin badge.</p>
+        </div>
+        <div class="experience-step">
+          <div class="exp-title">Real-World Purchase</div>
+          <p>At the shop, Aoife uses her card for a €2 treat; parent gets an instant category alert with custom spending limits enforced.</p>
         </div>
       </div>
+    </section>
 
-      <!-- Section 3 -->
-      <div class="section-card" id="sec-3">
-        <button class="section-header" onclick="toggleSection('sec-3')">
-          <div class="section-header-left">
-            <span class="section-number">3</span>
-            <span class="section-title">Technical Expertise & Stack</span>
-          </div>
-          <span class="toggle-icon">✕</span>
-        </button>
-        <div class="section-body">
-          <p style="margin-bottom: 12px;">Core technological proficiency across development, cloud, AI, and security frameworks:</p>
-          <div class="badge-grid">
-            <span class="badge">Python</span>
-            <span class="badge">TypeScript / JavaScript</span>
-            <span class="badge">Angular / React.js</span>
-            <span class="badge">Next.js / Node.js</span>
-            <span class="badge">Generative AI / OpenAI / Gemini</span>
-            <span class="badge">AWS / GCP / Azure</span>
-            <span class="badge">Docker / Kubernetes</span>
-            <span class="badge">DevSecOps / CI/CD</span>
-            <span class="badge">SQL / PostgreSQL / MongoDB</span>
-            <span class="badge">Tailwind / Material UI</span>
-          </div>
+    <!-- Social Proof -->
+    <section class="container">
+      <h2>What Parents Are Saying</h2>
+      <div class="card quote-card">
+        "Revolut junior is basically useless. You can't give it receive money on it. Your can only pay online or in shops."
+        <span class="quote-source">— Reddit r/ireland Discussion</span>
+      </div>
+      <div class="card quote-card" style="border-left-color: var(--cyan);">
+        "The UX is frustrating in several areas... if relatives want to pay into it, there are too many barriers."
+        <span class="quote-source">— Trustpilot Review</span>
+      </div>
+      <div class="card quote-card" style="border-left-color: var(--amber);">
+        "It's a decent app and easy for kids to use but the charge is the down side."
+        <span class="quote-source">— Trustpilot Review</span>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="card">
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-q">How does this differ from Revolut &lt;18?</div>
+          <div class="faq-a">Revolut &lt;18 focuses on spending and limits peer-to-peer or relative transfers on basic plans. Our app links directly to classroom learning, supports multi-relative deposits without extra barriers, and includes structured chore workflows.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-q">How much does it cost?</div>
+          <div class="faq-a">Unlike services charging per-child fees (£3.99–£5.99/mo per child) or extra top-up charges, we offer a transparent flat family tier model with no hidden transaction fees.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-q">Is my child's money safe and regulated?</div>
+          <div class="faq-a">Yes, fully backed by an established Irish pillar bank under EU banking regulations and European deposit protection standards.</div>
+        </div>
+        <div class="faq-item" onclick="this.classList.toggle('active')">
+          <div class="faq-q">What ages is this suitable for?</div>
+          <div class="faq-a">Designed for ages 6–17, featuring simplified task-and-save visual interfaces for ages 6–11 and full budgeting tools for teens aged 12–17.</div>
         </div>
       </div>
+    </section>
 
-      <!-- Section 4 -->
-      <div class="section-card" id="sec-4">
-        <button class="section-header" onclick="toggleSection('sec-4')">
-          <div class="section-header-left">
-            <span class="section-number">4</span>
-            <span class="section-title">Career & Experience</span>
+    <!-- Qualifier Prototype -->
+    <section class="container" id="qualifier">
+      <h2>Is This For You?</h2>
+      <div class="card" id="qualifier-tool">
+        
+        <!-- Questions Container -->
+        <div id="questions-container">
+          <!-- Q1 -->
+          <div class="q-step active" data-step="1">
+            <div class="q-title">1. How many children aged 6–17 are in your household?</div>
+            <button class="option-btn" onclick="answer(1, 'A')">1 child</button>
+            <button class="option-btn" onclick="answer(1, 'B')">2 children</button>
+            <button class="option-btn" onclick="answer(1, 'C')">3 or more children</button>
           </div>
-          <span class="toggle-icon">✕</span>
-        </button>
-        <div class="section-body">
-          <div class="exp-item">
-            <div class="exp-title">Business Development Manager & Founder</div>
-            <div class="exp-sub">SYNC TECH Solutions | Aug 2024 – Present</div>
+          <!-- Q2 -->
+          <div class="q-step" data-step="2">
+            <div class="q-title">2. What is the age range of your child(ren)?</div>
+            <button class="option-btn" onclick="answer(2, 'A')">Primary school (Ages 6–11)</button>
+            <button class="option-btn" onclick="answer(2, 'B')">Secondary school (Ages 12–17)</button>
+            <button class="option-btn" onclick="answer(2, 'C')">Mixed ages across primary and secondary</button>
           </div>
-          <div class="exp-item">
-            <div class="exp-title">E-commerce Consultant and Developer</div>
-            <div class="exp-sub">APTLY DRESSED | Sep 2025 – Present</div>
+          <!-- Q3 -->
+          <div class="q-step" data-step="3">
+            <div class="q-title">3. What is your main frustration with current pocket money tools?</div>
+            <button class="option-btn" onclick="answer(3, 'A')">"It feels like a spending tap rather than a tool that teaches saving."</button>
+            <button class="option-btn" onclick="answer(3, 'B')">"Paying per-child monthly fees (£3.99–£5.99/mo) gets too expensive."</button>
+            <button class="option-btn" onclick="answer(3, 'C')">"Relatives can't easily pay in, or there are unexpected fees for extra top-ups."</button>
           </div>
-          <div class="exp-item">
-            <div class="exp-title">Web Developer</div>
-            <div class="exp-sub">blogify.blog | Sep 2025 – Present</div>
+          <!-- Q4 -->
+          <div class="q-step" data-step="4">
+            <div class="q-title">4. How do you currently handle chores and financial education?</div>
+            <button class="option-btn" onclick="answer(4, 'A')">Whiteboards, cash, or verbal reminders at home.</button>
+            <button class="option-btn" onclick="answer(4, 'B')">They see financial literacy modules in school, but we lack a home tool.</button>
+            <button class="option-btn" onclick="answer(4, 'C')">They have a basic card, but use it purely for online/in-store impulse spending.</button>
           </div>
-          <div class="exp-item">
-            <div class="exp-title">BSc in Computing (First Class Honors)</div>
-            <div class="exp-sub">Dublin Business School | Peer-Mentor Leadership Award Recipient</div>
+          <!-- Q5 -->
+          <div class="q-step" data-step="5">
+            <div class="q-title">5. What primary feature do you want most?</div>
+            <button class="option-btn" onclick="answer(5, 'A')">Simple chore automation and locked savings vaults for young learners.</button>
+            <button class="option-btn" onclick="answer(5, 'B')">Teen budgeting tools with real-world card controls and independent earning.</button>
+            <button class="option-btn" onclick="answer(5, 'C')">A single flat-fee account covering the whole family with relative gift links.</button>
           </div>
         </div>
-      </div>
 
-      <!-- Section 5 -->
-      <div class="section-card" id="sec-5">
-        <button class="section-header" onclick="toggleSection('sec-5')">
-          <div class="section-header-left">
-            <span class="section-number">5</span>
-            <span class="section-title">Contact & Hire Me</span>
-          </div>
-          <span class="toggle-icon">✕</span>
-        </button>
-        <div class="section-body" id="contact">
-          <p style="margin-bottom: 16px;">Available for bespoke software engineering, AI platform development, or technical consultancy engagements.</p>
-          <div class="contact-cta">
-            <p><strong>Email:</strong> <a href="mailto:sherazhussainofficial1@gmail.com">sherazhussainofficial1@gmail.com</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+353830682026">+353 830682026</a></p>
-            <p><strong>Website:</strong> <a href="https://www.sheraz.synctech.ie" target="_blank" rel="noopener">www.sheraz.synctech.ie</a></p>
-          </div>
+        <!-- Results Container -->
+        <div id="results-container" class="result-box">
+          <div id="result-title" class="plan-title"></div>
+          <div id="result-desc" class="plan-desc"></div>
+          <button id="result-cta" class="cta-btn"></button>
+          <br>
+          <button class="restart-btn" onclick="restartQuiz()">Restart Quiz</button>
         </div>
-      </div>
 
-    </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="container">
-      Sheraz Hussain &copy; <span id="year"></span> — Built with the AI Badge
+      &copy; 2026 Money Smarts Family Product Launch.
     </div>
   </footer>
 
   <script>
-    // Set Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Theme Toggle Logic
-    const themeBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
+    // Theme logic
+    const themeBtn = document.getElementById('theme-btn');
+    const updateIcon = () => themeBtn.textContent = document.documentElement.classList.contains('light') ? '🌙' : '☀️';
+    updateIcon();
     
-    function updateThemeIcon() {
-      const isLight = document.documentElement.classList.contains('light');
-      themeIcon.textContent = isLight ? '☀️' : '🌙';
-    }
-    updateThemeIcon();
-
     themeBtn.addEventListener('click', () => {
       document.documentElement.classList.toggle('light');
-      const isLight = document.documentElement.classList.contains('light');
-      localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      updateThemeIcon();
+      localStorage.setItem('theme', document.documentElement.classList.contains('light') ? 'light' : 'dark');
+      updateIcon();
     });
 
-    // Section Collapsible Logic
-    function toggleSection(id) {
-      const card = document.getElementById(id);
-      card.classList.toggle('closed');
-      updateGlobalCollapseState();
+    // Quiz logic
+    let answers = {};
+
+    function answer(step, choice) {
+      answers[step] = choice;
+      const current = document.querySelector(`.q-step[data-step="${step}"]`);
+      current.classList.remove('active');
+      
+      if (step < 5) {
+        document.querySelector(`.q-step[data-step="${step + 1}"]`).classList.add('active');
+      } else {
+        showResult();
+      }
     }
 
-    // Collapse / Expand All
-    const collapseBtn = document.getElementById('collapse-toggle');
-    const collapseIcon = document.getElementById('collapse-icon');
-    let allCollapsed = false;
+    function showResult() {
+      document.getElementById('questions-container').style.display = 'none';
+      const resultBox = document.getElementById('results-container');
+      resultBox.classList.add('active');
 
-    collapseBtn.addEventListener('click', () => {
-      const cards = document.querySelectorAll('.section-card');
-      allCollapsed = !allCollapsed;
-      
-      cards.forEach(card => {
-        if (allCollapsed) {
-          card.classList.add('closed');
-        } else {
-          card.classList.remove('closed');
-        }
-      });
-      collapseIcon.textContent = allCollapsed ? '+' : '−';
-    });
+      const q1 = answers[1], q2 = answers[2], q3 = answers[3], q4 = answers[4], q5 = answers[5];
+      let tier = '';
 
-    function updateGlobalCollapseState() {
-      const cards = document.querySelectorAll('.section-card');
-      const closedCards = document.querySelectorAll('.section-card.closed');
-      if (closedCards.length === cards.length) {
-        allCollapsed = true;
-        collapseIcon.textContent = '+';
-      } else if (closedCards.length === 0) {
-        allCollapsed = false;
-        collapseIcon.textContent = '−';
+      // Scoring logic mapping
+      if (q1 === 'B' || q1 === 'C' || q3 === 'B' || q5 === 'C') {
+        tier = 'family';
+      } else if (q2 === 'B' && (q4 === 'B' || q5 === 'B')) {
+        tier = 'teen';
+      } else if (q1 === 'A' && q2 === 'A') {
+        tier = 'junior';
+      } else {
+        tier = 'family'; // Default fallback
       }
+
+      const titleEl = document.getElementById('result-title');
+      const descEl = document.getElementById('result-desc');
+      const ctaEl = document.getElementById('result-cta');
+
+      if (tier === 'junior') {
+        titleEl.textContent = 'Junior Starter Plan (€2.99/mo per family)';
+        titleEl.style.color = 'var(--neon)';
+        descEl.textContent = 'Ideal for 1 young saver (ages 6–11) building foundational habits through chore tracking and Money Smarts gamified badges.';
+        ctaEl.textContent = 'Start Junior Saver Trial';
+      } else if (tier === 'family') {
+        titleEl.textContent = 'Family Wallet Plan (€5.99/mo flat for up to 5 kids)';
+        titleEl.style.color = 'var(--green)';
+        descEl.textContent = 'Built for multi-child families tired of per-child fees. Full chore tracking, relative gift deposits, and separate savings vaults for all your kids.';
+        ctaEl.textContent = 'Get Complete Family Coverage';
+      } else if (tier === 'teen') {
+        titleEl.textContent = 'Teen Money Smarts Academy (€0/mo)';
+        titleEl.style.color = 'var(--amber)';
+        descEl.textContent = 'Designed for secondary students (ages 12–17). Direct integration with school financial literacy modules, card controls, and independent budgeting tools.';
+        ctaEl.textContent = 'Activate Free Student Link';
+      }
+    }
+
+    function restartQuiz() {
+      answers = {};
+      document.getElementById('results-container').classList.remove('active');
+      document.getElementById('questions-container').style.display = 'block';
+      document.querySelectorAll('.q-step').forEach(el => el.classList.remove('active'));
+      document.querySelector('.q-step[data-step="1"]').classList.add('active');
     }
   </script>
 </body>
