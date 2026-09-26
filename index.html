@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sheraz Hussain — Founder & Web Developer</title>
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Sheraz Hussain — Founder & Web Developer">
+  <meta property="og:description" content="Transforming businesses through high-performance web development, AI automation, and scalable cloud solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.sheraz.synctech.ie">
+  <!-- Add og:image later: 1200x630 PNG matching dark theme -->
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sheraz Hussain — Founder & Web Developer">
+  <meta name="twitter:description" content="Transforming businesses through high-performance web development, AI automation, and scalable cloud solutions.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    // Prevent Theme Flash
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.add('light');
+      }
+    })();
+  </script>
+
+  <style>
+    :root {
+      --bg: #020a18;
+      --bg-grad: linear-gradient(170deg, #020a18 0%, #041028 40%, #06142e 70%, #020a18 100%);
+      --surface: rgba(8, 24, 56, 0.85);
+      --surface-hover: rgba(14, 38, 82, 0.85);
+      --border: rgba(0, 170, 255, 0.12);
+      --border-glow: rgba(0, 170, 255, 0.3);
+      --text: #d0e0f0;
+      --text-bright: #e8f0ff;
+      --text-dim: #6888aa;
+      
+      --neon: #00aaff;
+      --cyan: #00e5ff;
+      --green: #00ff88;
+      --amber: #ffaa00;
+      --red: #ff4466;
+      --purple: #aa66ff;
+      
+      --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      --grid-opacity: 0.03;
+      --orb-opacity: 0.08;
+    }
+
+    html.light {
+      --bg: #f0f4f9;
+      --bg-grad: linear-gradient(170deg, #eef2f8 0%, #e2e9f3 50%, #f0f4f9 100%);
+      --surface: rgba(255, 255, 255, 0.85);
+      --surface-hover: rgba(255, 255, 255, 0.98);
+      --border: rgba(0, 102, 204, 0.18);
+      --border-glow: rgba(0, 102, 204, 0.4);
+      --text: #1e293b;
+      --text-bright: #0f172a;
+      --text-dim: #64748b;
+      
+      --neon: #0066cc;
+      --cyan: #0088cc;
+      --green: #008a4b;
+      --amber: #d97706;
+      --red: #dc2626;
+      --purple: #7e22ce;
+
+      --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.06);
+      --grid-opacity: 0.05;
+      --orb-opacity: 0.12;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Background Depth Layers */
+    .bg-gradient-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg-grad);
+      z-index: -3;
+    }
+
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-size: 60px 60px;
+      background-image: 
+        linear-gradient(to right, var(--text-dim) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--text-dim) 1px, transparent 1px);
+      opacity: var(--grid-opacity);
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: var(--orb-opacity);
+      z-index: -1;
+      pointer-events: none;
+      animation: orbit 25s infinite ease-in-out alternate;
+    }
+
+    .orb-1 {
+      width: 500px;
+      height: 500px;
+      background: var(--neon);
+      top: -100px;
+      left: calc(50% - 750px);
+    }
+
+    .orb-2 {
+      width: 450px;
+      height: 450px;
+      background: var(--purple);
+      bottom: 10%;
+      right: calc(50% - 700px);
+      animation-delay: -7s;
+    }
+
+    .orb-3 {
+      width: 350px;
+      height: 350px;
+      background: var(--cyan);
+      top: 40%;
+      left: calc(50% + 450px);
+      animation-delay: -14s;
+    }
+
+    @keyframes orbit {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(40px, 60px) scale(1.1); }
+      100% { transform: translate(-30px, -40px) scale(0.95); }
+    }
+
+    /* Typography & Links */
+    a {
+      color: var(--neon);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--cyan);
+      text-shadow: 0 0 8px var(--border-glow);
+    }
+
+    /* Container & Header */
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      letter-spacing: -0.5px;
+    }
+
+    .header-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: var(--text-bright);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--border-glow);
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 60px 0 40px;
+    }
+
+    .hero-title {
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--text-bright);
+      line-height: 1.15;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+
+    .hero-role {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--neon);
+      margin-bottom: 24px;
+    }
+
+    .hero-statement {
+      font-size: 1.25rem;
+      color: var(--text);
+      max-width: 780px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--neon), var(--cyan));
+      color: #020a18;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 14px 28px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 170, 255, 0.25);
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      color: #020a18;
+      text-shadow: none;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(0, 229, 255, 0.4);
+    }
+
+    /* Collapsible Sections */
+    .sections-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding-bottom: 60px;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .section-card:hover {
+      border-color: var(--border-glow);
+    }
+
+    .section-header {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      color: var(--text-bright);
+      font-family: inherit;
+      text-align: left;
+    }
+
+    .section-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .section-number {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--neon);
+      color: var(--neon);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .toggle-icon {
+      font-size: 1.2rem;
+      color: var(--text-dim);
+      transition: transform 0.3s ease;
+    }
+
+    .section-card.closed .toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    .section-body {
+      max-height: 2000px;
+      opacity: 1;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, padding 0.3s ease;
+      padding: 0 24px 24px 72px;
+    }
+
+    .section-card.closed .section-body {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    /* Content Styling inside sections */
+    .bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .bullet-list li {
+      position: relative;
+    }
+
+    .bullet-list li::before {
+      content: "▹";
+      position: absolute;
+      left: -20px;
+      color: var(--neon);
+      font-weight: bold;
+    }
+
+    .badge-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .badge {
+      background: rgba(0, 170, 255, 0.08);
+      border: 1px solid var(--border);
+      color: var(--text-bright);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+
+    .exp-item {
+      margin-bottom: 20px;
+    }
+    .exp-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-title {
+      font-weight: 600;
+      color: var(--text-bright);
+    }
+
+    .exp-sub {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+
+    .contact-cta {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+    }
+
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+      .section-body {
+        padding-left: 24px;
+      }
+      .section-header-left {
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-gradient-fixed"></div>
+  <div class="bg-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <div class="brand-name">Sheraz Hussain</div>
+        <div class="header-actions">
+          <button class="icon-btn" id="theme-toggle" title="Toggle Light/Dark Theme" aria-label="Toggle Theme">
+            <span id="theme-icon">🌙</span>
+          </button>
+          <button class="icon-btn" id="collapse-toggle" title="Collapse/Expand All Sections" aria-label="Toggle All Sections">
+            <span id="collapse-icon">−</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 class="hero-title">Sheraz Hussain</h1>
+      <div class="hero-role">Founder & Business Development Manager at SYNC TECH Solutions | Web Developer</div>
+      <p class="hero-statement">Transforming businesses through high-performance web development, AI automation, and scalable cloud solutions.</p>
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+    </section>
+
+    <div class="sections-wrapper">
+      
+      <!-- Section 1 -->
+      <div class="section-card" id="sec-1">
+        <button class="section-header" onclick="toggleSection('sec-1')">
+          <div class="section-header-left">
+            <span class="section-number">1</span>
+            <span class="section-title">Featured Projects & AI Applications</span>
+          </div>
+          <span class="toggle-icon">✕</span>
+        </button>
+        <div class="section-body">
+          <ul class="bullet-list">
+            <li><strong>Market Genius:</strong> Architected and implemented a real-time financial signal platform delivering AI-generated insights for stock and crypto trading utilizing Next.js, TypeScript, Google Genkit, and Firebase.</li>
+            <li><strong>Job4You:</strong> Created an automated job-application assistant with Python and GPT-4 that processed over 100 simulated applications, utilizing scikit-learn for end-to-end resume, cover letter, and email generation.</li>
+            <li><strong>Chatty AI:</strong> Architected and built a cross-platform conversational AI assistant using the Gemini API, Angular, and Ionic deployed as a university study aid facilitating 200+ daily interactions with sub-second response times.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="section-card" id="sec-2">
+        <button class="section-header" onclick="toggleSection('sec-2')">
+          <div class="section-header-left">
+            <span class="section-number">2</span>
+            <span class="section-title">Professional Services & SYNC TECH Solutions</span>
+          </div>
+          <span class="toggle-icon">✕</span>
+        </button>
+        <div class="section-body">
+          <p style="margin-bottom: 12px;">Founded and directed SYNC TECH Solutions, an IT solutions firm specializing in bespoke digital growth, Web Development, AI Automation, Cloud Hosting, and Cybersecurity.</p>
+          <ul class="bullet-list">
+            <li><strong>E-Commerce & Platform Consulting:</strong> Delivered scalable web development, custom integrations, and architecture optimization for platforms including APTLY DRESSED, blogify.blog, and Stylish Marble Art.</li>
+            <li><strong>Digital Strategy & Optimization:</strong> Spearheaded digital marketing, funnel optimization, and technical SEO campaigns resulting in significant traffic and conversion growth.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 3 -->
+      <div class="section-card" id="sec-3">
+        <button class="section-header" onclick="toggleSection('sec-3')">
+          <div class="section-header-left">
+            <span class="section-number">3</span>
+            <span class="section-title">Technical Expertise & Stack</span>
+          </div>
+          <span class="toggle-icon">✕</span>
+        </button>
+        <div class="section-body">
+          <p style="margin-bottom: 12px;">Core technological proficiency across development, cloud, AI, and security frameworks:</p>
+          <div class="badge-grid">
+            <span class="badge">Python</span>
+            <span class="badge">TypeScript / JavaScript</span>
+            <span class="badge">Angular / React.js</span>
+            <span class="badge">Next.js / Node.js</span>
+            <span class="badge">Generative AI / OpenAI / Gemini</span>
+            <span class="badge">AWS / GCP / Azure</span>
+            <span class="badge">Docker / Kubernetes</span>
+            <span class="badge">DevSecOps / CI/CD</span>
+            <span class="badge">SQL / PostgreSQL / MongoDB</span>
+            <span class="badge">Tailwind / Material UI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="section-card" id="sec-4">
+        <button class="section-header" onclick="toggleSection('sec-4')">
+          <div class="section-header-left">
+            <span class="section-number">4</span>
+            <span class="section-title">Career & Experience</span>
+          </div>
+          <span class="toggle-icon">✕</span>
+        </button>
+        <div class="section-body">
+          <div class="exp-item">
+            <div class="exp-title">Business Development Manager & Founder</div>
+            <div class="exp-sub">SYNC TECH Solutions | Aug 2024 – Present</div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-title">E-commerce Consultant and Developer</div>
+            <div class="exp-sub">APTLY DRESSED | Sep 2025 – Present</div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-title">Web Developer</div>
+            <div class="exp-sub">blogify.blog | Sep 2025 – Present</div>
+          </div>
+          <div class="exp-item">
+            <div class="exp-title">BSc in Computing (First Class Honors)</div>
+            <div class="exp-sub">Dublin Business School | Peer-Mentor Leadership Award Recipient</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 5 -->
+      <div class="section-card" id="sec-5">
+        <button class="section-header" onclick="toggleSection('sec-5')">
+          <div class="section-header-left">
+            <span class="section-number">5</span>
+            <span class="section-title">Contact & Hire Me</span>
+          </div>
+          <span class="toggle-icon">✕</span>
+        </button>
+        <div class="section-body" id="contact">
+          <p style="margin-bottom: 16px;">Available for bespoke software engineering, AI platform development, or technical consultancy engagements.</p>
+          <div class="contact-cta">
+            <p><strong>Email:</strong> <a href="mailto:sherazhussainofficial1@gmail.com">sherazhussainofficial1@gmail.com</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+353830682026">+353 830682026</a></p>
+            <p><strong>Website:</strong> <a href="https://www.sheraz.synctech.ie" target="_blank" rel="noopener">www.sheraz.synctech.ie</a></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      Sheraz Hussain &copy; <span id="year"></span> — Built with the AI Badge
+    </div>
+  </footer>
+
+  <script>
+    // Set Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme Toggle Logic
+    const themeBtn = document.getElementById('theme-toggle');
+    const themeIcon = document.getElementById('theme-icon');
+    
+    function updateThemeIcon() {
+      const isLight = document.documentElement.classList.contains('light');
+      themeIcon.textContent = isLight ? '☀️' : '🌙';
+    }
+    updateThemeIcon();
+
+    themeBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      const isLight = document.documentElement.classList.contains('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+      updateThemeIcon();
+    });
+
+    // Section Collapsible Logic
+    function toggleSection(id) {
+      const card = document.getElementById(id);
+      card.classList.toggle('closed');
+      updateGlobalCollapseState();
+    }
+
+    // Collapse / Expand All
+    const collapseBtn = document.getElementById('collapse-toggle');
+    const collapseIcon = document.getElementById('collapse-icon');
+    let allCollapsed = false;
+
+    collapseBtn.addEventListener('click', () => {
+      const cards = document.querySelectorAll('.section-card');
+      allCollapsed = !allCollapsed;
+      
+      cards.forEach(card => {
+        if (allCollapsed) {
+          card.classList.add('closed');
+        } else {
+          card.classList.remove('closed');
+        }
+      });
+      collapseIcon.textContent = allCollapsed ? '+' : '−';
+    });
+
+    function updateGlobalCollapseState() {
+      const cards = document.querySelectorAll('.section-card');
+      const closedCards = document.querySelectorAll('.section-card.closed');
+      if (closedCards.length === cards.length) {
+        allCollapsed = true;
+        collapseIcon.textContent = '+';
+      } else if (closedCards.length === 0) {
+        allCollapsed = false;
+        collapseIcon.textContent = '−';
+      }
+    }
+  </script>
+</body>
+</html>
